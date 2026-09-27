@@ -1,0 +1,176 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  margin: 3em;
+  font-family: Arial, sans-serif;
+  color: black;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2em;
+  color: orange;
+  text-decoration: none;
+}
+
+h1 span {
+  color: red;
+}
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+/************** index categories ****************/
+
+.category {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  margin-left: 10em;
+  margin-right: 10em;
+}
+
+.category a {
+  padding: 2em;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/************** productlist ****************/
+
+.product_list_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  background-color: lightgray;
+  padding: 2em;
+}
+
+.product {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+}
+
+.soldout_tag {
+  visibility: hidden;
+}
+
+.soldout * {
+  opacity: 50%;
+}
+
+.soldout .soldout_tag {
+  opacity: 100%;
+  /* visibility: visible; */
+  position: absolute;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  top: 0;
+  left: 0;
+}
+
+/************** single product ****************/
+
+/* PRODUKTBILLEDE */
+.product-image {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.product-image img {
+  max-width: 500px;
+  object-fit: contain;
+}
+
+/* INFORMATION */
+.product-info {
+  padding: 30px 40px;
+}
+
+.product-info h1 {
+  font-size: 42px;
+  margin: 0 0 30px;
+}
+
+.details {
+  display: block;
+  font-size: 18px;
+}
+.details p {
+  margin-bottom: 2rem;
+}
+
+/* KØBSBOKS */
+.buy-box {
+  background: #d3d3d3;
+  padding: 40px 40px 40px;
+  color: white;
+}
+
+.size {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.size label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.size select {
+  width: 100px;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.buy-box button {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  color: #222;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buy-box button:hover {
+  background: #f2f2f2;
+}
+
+/* MOBIL */
+
+@media (max-width: 800px) {
+  .product {
+    grid-template-columns: 1fr;
+  }
+
+  .product-info {
+    padding: 30px 20px;
+  }
+
+  .buy-box {
+    padding: 30px 10px;
+  }
+}
