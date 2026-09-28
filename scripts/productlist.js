@@ -6,9 +6,11 @@ const productURL = `https://kea-alt-del.dk/t7/api/products?season=${selectedSeas
 const listContainer = document.querySelector(".product_list_container");
 
 function getData(url) {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => showProducts(data));
+  fetch(url).then((response) => {
+    response.json().then((data) => {
+      showProducts(data);
+    });
+  });
 }
 
 function showProducts(products) {
@@ -26,7 +28,7 @@ function showProducts(products) {
           ${product.discount ? `<p>${getDiscountPrice(product.price, product.discount)} kr</p>` : ""}
           <p>${product.price} kr ${product.discount ? " <em>-" + product.discount + "%" : ""}</p> 
           </div>
-          <p><a href="product.html">Read More</a></p>
+          <p><a href="product.html?id=${product.id}">Read More</a></p>
           ${product.soldout ? "<p class='soldout_tag'>Sold Out</p>" : ""}
         </article>`;
   });

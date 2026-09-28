@@ -5,11 +5,19 @@ const categoryUrl = "https://kea-alt-del.dk/t7/api/categories";
 
 getData(categoryUrl);
 
+// function getData(url) {
+//   fetch(url)
+//     .then((response) => response.json())
+//     .then((data) => showData(data));
+// }
 function getData(url) {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => showData(data));
+  fetch(url).then((response) => {
+    response.json().then((data) => {
+      showData(data);
+    });
+  });
 }
+
 function showData(data) {
   let myInnerHtml = "";
   data.forEach((category) => {
