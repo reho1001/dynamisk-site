@@ -1,12 +1,14 @@
-const productURL = "https://kea-alt-del.dk/t7/api/products";
+const param = new URLSearchParams(window.location.search);
+const selectedSeason = param.get("season");
+console.log("selectedSeason", selectedSeason);
+
+const productURL = `https://kea-alt-del.dk/t7/api/products?season=${selectedSeason}`;
 const listContainer = document.querySelector(".product_list_container");
 
 function getData(url) {
-  fetch(url).then((response) => {
-    response.json().then((data) => {
-      showProducts(data);
-    });
-  });
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => showProducts(data));
 }
 
 function showProducts(products) {
@@ -21,12 +23,17 @@ function showProducts(products) {
           <h3>${product.productdisplayname}</h3>
           <p>${product.brandname} - ${product.category}</p>
           <div>
-            <p>895 kr</p>
+          ${product.discount ? `<p>${getDiscountPrice(product.price, product.discount)} kr</p>` : ""}
+          <p>${product.price} kr ${product.discount ? " <em>-" + product.discount + "%" : ""}</p> 
           </div>
-          <p><a href="#">Read More</a></p>
+          <p><a href="product.html">Read More</a></p>
           ${product.soldout ? "<p class='soldout_tag'>Sold Out</p>" : ""}
         </article>`;
   });
 }
-
 getData(productURL);
+
+function getDiscountPrice(originalPrice, discount) {
+  return Math.round(originalPrice * (100 - discount)) / 100;
+}
+console.log("100 - 25%", getDiscountPrice(24, 17));
