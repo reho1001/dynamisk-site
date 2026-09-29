@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="scripts/product.js" defer></script>
     <title>Product</title>
 </head>
 
@@ -14,8 +15,40 @@
             <h1>Fashion<span>R</span>US</h1>
         </a>
     </header>
-    <main class="product">
-        <section class="product-image">
+    <main class="product_container">
+        <img src="https://kea-alt-del.dk/t7/images/webp/640/1163.webp" alt="Product image">
+        <div class="product_information">
+            <p class="detail-category">Category: Menswear</p>
+            <!-- "category": "Apparel", -->
+            <h2 class="detail-product">Productname</h2>
+            <!-- "productdisplayname": "Sahara Team India Fanwear Round Neck Jersey", -->
+            <p class="detail-brand">Brand: Nike</p>
+            <!-- "brandname": "Nike", -->
+            <p class="detail-description">Description: Blue round neck Sahara Team India jersey</p>
+            <!-- "articletype": "Tshirts", -->
+            <p class="detail-color">Color: Blue</p>
+            <!-- "subcategory": "Topwear", -->
+            <p class="detail-price">Price: 895 kr</p>
+            <p class="discount-price"></p>
+            <!-- "price": 895, -->
+        </div>
+        <div class="order_product">
+            <div class="size">
+                <label>Choose a size</label>
+                <select>
+                    <option>S</option>
+                    <option>M</option>
+                    <option>L</option>
+                    <option>XL</option>
+                </select>
+            </div>
+            <button>Add to basket</button>
+        </div>
+    </main>
+
+
+
+    <!-- <section class="product-image">
             <img src="https://kea-alt-del.dk/t7/images/webp/640/1163.webp" alt="Jersey">
         </section>
         <section class="product-info">
@@ -27,20 +60,9 @@
                 <p>895 kr</p>
             </div>
             <article class="buy-box">
-                <div class="size">
-                    <label>Choose a size</label>
-                    <select>
-                        <option>S</option>
-                        <option>M</option>
-                        <option>L</option>
-                        <option>XL</option>
-                    </select>
-                </div>
-                <button>Add to basket</button>
+              
             </article>
-        </section>
-    </main>
-
+        </section> -->
 </body>
 
 </html>
